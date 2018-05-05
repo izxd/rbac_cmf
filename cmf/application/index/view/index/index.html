@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<title></title>
+</head>
+<body>
+<table class="table table-hover table-bordered table-list">
+    <thead>
+    <tr>
+        <th width="40">ID</th>
+        <th align="left">角色名称</th>
+        <th align="left">角色描述	</th>
+        <th width="60" align="left">状态</th>
+        <th width="160">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+        {foreach name="roles" item="vo"}
+            <tr>
+                <td>{$vo.id}</td>
+                <td>{$vo.name}</td>
+                <td>{$vo.remark}</td>
+                <td>
+                    {equal name="$vo['status']" value="1"}
+                        <font color="red">√</font>
+                    {else/}
+                        <font color="red">╳</font>
+                    {/equal}
+                </td>
+                <td>
+                {eq name="$vo['id']" value="1"}
+                    <font color="#cccccc">权限设置</font>
+                    <font color="#cccccc">编辑</font>
+                    <font color="#cccccc">删除</font>
+                {else/}
+                    <a href="">权限设置</a>
+                    <a href="{:url('index/roleedit',array('id'=>$vo['id']))}">编辑</a>
+                    <a class="js-ajax-delete" href="{:url('index/roledelete',array('id'=>$vo['id']))}">删除</a>
+                {/eq}
+            </td>
+            </tr>
+        {/foreach}
+    <!-- {volist name="roles" key="k" id="user" empty="暂时没有数据"}
+        <tr>
+            <td>{$user.id}</td>
+            <td>{$user.name}</td>
+            <td>{$user.remark}</td>
+            <td>
+                {equal name="$user['status']" value="1"}
+                    <font color="red">√</font>
+                {else/}
+                    <font color="red">╳</font>
+                {/equal}
+            </td>
+            <td>
+                {eq name="$user['id']" value="1"}
+                    <font color="#cccccc">权限设置</font>
+                    <font color="#cccccc">编辑</font>
+                    <font color="#cccccc">删除</font>
+                {else/}
+                    <a href="">权限设置</a>
+                    <a href="">编辑</a>
+                    <a class="js-ajax-delete" href="">删除</a>
+                {/eq}
+            </td>
+        </tr>
+    {/volist} -->
+    </tbody>
+</table>
+
+</body>
+</html>
