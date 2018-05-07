@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('user/index/editPost')}">
+    <div class="form-group">
+        <label for="input-user_login" class="col-sm-2 control-label"><span class="form-required">*</span>用户名</label>
+        <div class="col-md-6 col-sm-10">
+            <input type="text" class="form-control" id="input-user_login" name="user_login" value="{$user_login}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="input-user_pass" class="col-sm-2 control-label"><span class="form-required">*</span>密码</label>
+        <div class="col-md-6 col-sm-10">
+            <input type="text" class="form-control" id="input-user_pass" name="user_pass" value="" placeholder="******">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="input-user_email" class="col-sm-2 control-label"><span class="form-required">*</span>邮箱</label>
+        <div class="col-md-6 col-sm-10">
+            <input type="text" class="form-control" id="input-user_email" name="user_email" value="{$user_email}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="input-user_email" class="col-sm-2 control-label"><span class="form-required">*</span>角色</label>
+        <div class="col-md-6 col-sm-10">
+            {foreach name="roles" item="vo"}
+                <label class="checkbox-inline">
+                    <?php $role_id_checked=in_array($vo['id'],$role_ids)?"checked":""; ?>
+                    <input value="{$vo.id}" type="checkbox" name="role_id[]" {$role_id_checked} {if condition=" $vo['id'] eq 1"}disabled="true"{/if}>{$vo.name}
+                </label>
+            {/foreach}
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="hidden" name="id" value="{$id}" />
+            <button type="submit" class="btn btn-primary js-ajax-submit">保存</button>
+            <a class="btn btn-default" href="javascript:history.back(-1);">返回</a>
+        </div>
+    </div>
+</form>
+</body>
+</html>

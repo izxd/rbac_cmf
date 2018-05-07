@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+<!--中间内容/start-->
+<table class="table table-hover table-bordered table-list" id="menus-table">
+    <thead>
+    <tr>
+        <th width="80">排序</th>
+        <th width="50">ID</th>
+        <th>菜单名称</th>
+        <th>操作</th>
+        <th width="80">状态</th>
+        <th width="180">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {$category}
+    </tbody>
+</table>
+<!--中间内容/end-->
+
+
+<!--js/start-->
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<!--tree/start-->
+<script src="http://www.ijquery.cn/js/treeTable/treeTable.js"></script>
+<link href="http://www.ijquery.cn/js/treeTable/treeTable.css" rel="stylesheet">
+<!--tree/end-->
+
+<script>
+    $(function() {
+        $("#menus-table").treeTable({
+            expandable: true
+        });
+    })
+</script>
+<!--js/end-->
+
+</body>
+</html>

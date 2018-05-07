@@ -59,8 +59,8 @@
                         <font color="#cccccc">正常</font>
                     {/if}
                 {else /}
-                <a href='{:url("user/edit",array("id"=>$vo["id"]))}'>编辑</a>
-                <a class="js-ajax-delete" href="{:url('user/delete',array('id'=>$vo['id']))}">删除</a>
+                <a href='{:url("user/index/edit",array("id"=>$vo["id"]))}'>编辑</a>
+                <a class="js-ajax-delete" href="{:url('user/index/delete',array('id'=>$vo['id']))}">删除</a>
                     {if condition="$vo['user_status'] eq 1"}
                         <a href="{:url('user/ban',array('id'=>$vo['id']))}" class="js-ajax-dialog-btn" data-msg="您确定要拉黑此用户吗？">拉黑</a>
                     {else /}
